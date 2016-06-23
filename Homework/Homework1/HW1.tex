@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amscd,amsthm,amsbsy,upref}
+\usepackage[all]{xy}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{paralist}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usetikzlibrary{calc}
+
+\rhead{\today}
+\lhead{Homework 1}
+
+\pagestyle{fancy}
+\footskip=36pt
+
+
+\newtheorem{thm}{Theorem}
+\newtheorem{clm}{Claim}
+\newtheorem{hthm}[thm]{*Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{con}[thm]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{scho}[thm]{Scholium}
+\newtheorem*{Exthm}{Example Theorem}
+\newtheorem*{Thm}{Theorem}
+\newtheorem*{Con}{Conjecture}
+\newtheorem*{Axiom}{Axiom}
+\newtheorem*{Exam}{Example}
+
+\theoremstyle{definition}
+\newtheorem{Def}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+
+%what follows are a bunch of special commands I have defined
+\newcommand{\ov}[1]{\overline{#1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\HH}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\RP}{\mathbb{R}\mathbb{P}}
+\newcommand{\CP}{\mathbb{C}\mathbb{P}}
+\newcommand{\exs}{\exists}
+\newcommand{\fal}{\forall}
+\newcommand{\andt}{\,\wedge\,}
+\newcommand{\ort}{\,\vee\,}
+\newcommand{\nott}{\!\sim\!}
+\newcommand{\impl}{\Rightarrow}
+\newcommand{\hookto}{\hookrightarrow}
+
+\newcommand{\ifaf}{\LeftRightarrow}
+\newcommand{\hltb}[1]{\color{blue}\textbf{#1}\color{black}}
+\newcommand{\st}{\mathrm{\;such\;that\;}}
+\newcommand{\spa}{\mathrm{span\;}}
+\newcommand{\sign}{\mathrm{sign\;}}
+\newcommand{\val}{\mathrm{val\;}}
+
+\newcommand{\LW}{\mathrm{W}}
+\newcommand{\im}{\mathrm{im\,}}
+\newcommand{\coker}{\mathrm{coker\,}}
+\newcommand{\re}{\mathrm{Im\,}}
+\newcommand{\LWa}{\mathrm{W_0}}
+\newcommand{\LWb}{\mathrm{W_{-1}}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\lie}{\mathrm{Lie}}
+\newcommand{\Mor}{\mathrm{Mor}}
+\newcommand{\Gal}{\mathrm{Gal}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+ \newcommand{\nn}{\mathrm{\bf{n}}}
+ \DeclareMathOperator{\ad}{ad}
+ 
+\begin{document}
+	\begin{center}
+		\Large{\textbf{Homework 1: Cumulative Song}} \\
+		\textbf{Adopted from UW CSE 142 homework} \\
+		\textbf{Due: June 29, 2016}
+	\end{center}
+	Your first assignment will require the use of functions and print statements. You are going to write a Python program that produces as output a cumulative song in which successive verses build on previous verses (as described in http://en.wikipedia.org/wiki/Cumulative\_song).  Your program should produce as output the following song:
+	
+	\begin{verbatim}
+		There was an old woman who swallowed a fly.
+		I don't know why she swallowed that fly,
+		Perhaps she'll die.
+		
+		There was an old woman who swallowed a spider,
+		That wriggled and iggled and jiggled inside her.
+		She swallowed the spider to catch the fly,
+		I don't know why she swallowed that fly,
+		Perhaps she'll die.
+		
+		There was an old woman who swallowed a bird,
+		How absurd to swallow a bird.
+		She swallowed the bird to catch the spider,
+		She swallowed the spider to catch the fly,
+		I don't know why she swallowed that fly,
+		Perhaps she'll die.
+		
+		There was an old woman who swallowed a cat,
+		Imagine that to swallow a cat.
+		She swallowed the cat to catch the bird,
+		She swallowed the bird to catch the spider,
+		She swallowed the spider to catch the fly,
+		I don't know why she swallowed that fly,
+		Perhaps she'll die.
+		
+		There was an old woman who swallowed a dog,
+		What a hog to swallow a dog.
+		She swallowed the dog to catch the cat,
+		She swallowed the cat to catch the bird,
+		She swallowed the bird to catch the spider,
+		She swallowed the spider to catch the fly,
+		I don't know why she swallowed that fly,
+		Perhaps she'll die.
+		
+		<< Your custom sixth verse goes here >>
+		
+		There was an old woman who swallowed a horse,
+		She died of course.
+	\end{verbatim}
+	\noindent
+	As indicated above, you should include a custom sixth verse that matches the pattern of the first five verses.  You must exactly reproduce the format of this output. \\
+	
+	\noindent
+	For this assignment, it involves writing a sixth verse that fits the pattern of the first five.  For example, some versions of the song have a sixth verse for swallowing a goat (“Just opened her throat to swallow a goat”).  Notice that the first two lines should either end in the same word (fly/fly, bird/bird, cat/cat, etc) or should end with rhyming words (spider/inside her).  You are not allowed to simply copy one of the previous animals or to use the verses you’ll find on the web (e.g., goat and cow).  You have to write your own verse.  The text of the verse should not include hateful, offensive, or otherwise inappropriate speech.
+	
+	\noindent
+	You are to make use of static methods to avoid the “simple” redundancy.  In particular, you are to make sure that you use only one print statement for each distinct line of the song.  For example, this line:
+	\begin{verbatim}
+		Perhaps she'll die.
+	\end{verbatim}
+	appears several times in the output.  You are to have only one print statement in your program for producing this line.  The more complex redundancy has to do with pairs of lines like these:
+	\begin{verbatim}
+		There was an old woman who swallowed a horse,
+		There was an old woman who swallowed a dog,
+	\end{verbatim}
+	It is not possible to avoid this redundancy using just functions and simple print statements. (If you figure this out, you get extra credit! Remember you are not required to reduce this type of redundancy)  There is, however, a structural redundancy that you can eliminate with static methods and this will be worth a point.  The key question to ask yourself is whether or not you have repeated lines of code that could be eliminated if you structured your static methods differently. \\
+	
+	\noindent
+	You should also be using functions to capture the structure of the song.  You must, for example, have a different function for each of the seven verses of the song (verses are separated by blank lines in the output).  As a result, you will not have any print statements in main except perhaps a print that produces a blank line. \\
+	
+	\noindent
+	You should include a comment at the beginning of your program with some basic information and a description of the program, as in:
+	\begin{verbatim}
+		# Julio Marco Pineda
+		# 06/21/16
+		# Homework 1
+		#
+		# This program will...
+	\end{verbatim}
+	\noindent
+	You should name your file as Song.py and email to me your source code. \\
+	
+	\noindent
+	\textbf{Additional comments:}
+	\begin{enumerate}[(a)]
+		\item Remember to follow proper style. If you have a question about style, please email me.
+		
+		\item This assignment is easier than other homework you will see in class, thus this assignment will not be graded that heavily. Furthermore, any early mistakes about style will not greatly reduce your score.
+		
+		\item Use this website to check if your output is exactly the same from the desire output in the program (excluding your unique verse): \\
+		https://www.diffchecker.com/diff
+		
+		\item This homework is meant to be worked on individually. Try your best to come up with the solution. However, feel free to ask your classmates for help with some conceptual aspects of this assignment.
+	\end{enumerate}
+	
+\end{document}
